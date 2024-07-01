@@ -1,0 +1,889 @@
+{
+	"info": {
+		"_postman_id": "78cf589a-e279-4900-8de4-5a617d4a45c5",
+		"name": "POS API Documentation",
+		"description": "URL - [https://dev-pos-api.zithara.com](https://dev-pos-api.zithara.com/v1)\n\n> **Fields that are present in the request body are mandatory** \n  \n> **This API also Accepts additional fields that are present in the response**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Access Token API",
+			"item": [
+				{
+					"name": "generate access token",
+					"id": "0bb865f6-7faf-4f16-ad25-4310e0502bb7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "client_id",
+								"value": "CLIENT_ID",
+								"type": "text"
+							},
+							{
+								"key": "client_secret",
+								"value": "CLIENT_SECRET",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dev-pos-api.zithara.com/v1/generate-access-token",
+						"description": "### Response Body\n\n``` json\n{\n    \"access_token\": \"eyJraWQiOiJONm5qZVhqak4xNDFuelBDeEZLOFZDZWtMQlNOT1JvaGpjXC8yYVF4cTlpaz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI2aGY5a2M1OW9scGxsbWdzOGliZzdrdWJtNyIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicG9zLWFwaVwvbWVyY2hhbnRfaWQgcG9zLWFwaVwvc3ViX21lcmNoYW50X2lkIiwiYXV0aF90aW1lIjoxNzE5NDAyMjkxLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX0NLOE04b3J0ZCIsImV4cCI6MTcxOTQwNTg5MSwiaWF0IjoxNzE5NDAyMjkxLCJ2ZXJzaW9uIjoyLCJqdGkiOiJmYzg1ZDUxNi0yMDU2LTQzYzAtODE0OC1lMjdlMGRlYTY3ZTgiLCJjbGllbnRfaWQiOiI2aGY5a2M1OW9scGxsbWdzOGliZzdrdWJtNyJ9.uTBNLVWepVs6esx1nNwr6AlkwKuKZHEqe2tm0NvYf-PNeGqTgGk7VuT204jCJ67KrC6L5YiO61MHwFcc9HQMEGZfM7LhdYuw0vDGmjfA-AOnZc-QX5GC4uOmGO_H-SjoUEXfi8sHm4KkTMI3M1TrhoQ1Yz_othyPJcINjsNA0MQ34_RpDdCa6NcqAc_Fy-Zu6dyu9VsPp1Sb-daOtB-96sw8kEbXrNLq-GVRitG4OqWUmEzfgkB3FB4ovB0w313XVpaeHhLGyEa4avY3d7rREKHllEr4cgStyZaT7DyhY9RFRWOgZUaHiiiIGfzlnKCPCJU5ji0zA48eqFTfHeiLrw\",\n    \"expires_in\": 3600,\n    \"token_type\": \"Bearer\"\n}\n\n ```\n\nThis JSON represents the response body containing an access token with its expiration time and token type."
+					},
+					"response": []
+				}
+			],
+			"id": "6e7fdf5d-fb3f-4c52-b04d-4325177dac52"
+		},
+		{
+			"name": "Health API",
+			"item": [
+				{
+					"name": "Health",
+					"id": "bf1b0d0f-2a1b-442e-8754-1b7fdb3fe3a7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": "https://dev-pos-api.zithara.com/v1/health",
+						"description": "### Response Body\n\n``` json\n{\n    \"message\": \"We are live.\"\n}\n\n ```\n\nThis JSON represents the response body with a message indicating \"We are live.\""
+					},
+					"response": []
+				}
+			],
+			"id": "9cc45dc3-fc65-4b36-91b1-fa72e89fbd47"
+		},
+		{
+			"name": "Customer API",
+			"item": [
+				{
+					"name": "create customer",
+					"id": "67ac9057-c43e-44dd-a998-92a2de8a8550",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"platform_customer_id\": \"5\",\r\n    \"phone_number\": \"918097117706\",\r\n    \"first_name\": \"Dileep dfsdf\",\r\n    \"last_name\": \"Dileep Bez\",\r\n    \"name\": \"Dileep Bez\",\r\n    \"whatsapp_phone_number\": \"917275724262\",\r\n    \"email\": \"dileep@billez.in\",\r\n    \"custom_attributes\": {\r\n        \"college_name\":\"nit\",\r\n        \"sdfsdf\":\"sdfsdf\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dev-pos-api.zithara.com/v1/customer",
+						"description": "## Endpoint\n\n### Create Single Customer\n\n### POST `/v1/customer`\n\n- Create Customer\n    \n- if the customer exists - updates the customer\n    \n- Adds a default amount of points if a customer is created"
+					},
+					"response": []
+				},
+				{
+					"name": "get single customer",
+					"id": "6ec697a4-b492-4618-9d1c-c2cbab4bb47b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN"
+							}
+						],
+						"url": {
+							"raw": "https://dev-pos-api.zithara.com/v1/customer?customerId=CUSTOMER_ID",
+							"protocol": "https",
+							"host": [
+								"dev-pos-api",
+								"zithara",
+								"com"
+							],
+							"path": [
+								"v1",
+								"customer"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "CUSTOMER_ID"
+								}
+							]
+						},
+						"description": "### Get Single Customer\n\nThis API endpoint allows you to retrieve details of a single customer based on various query parameters such as `customer_id`, `platformCustomerId`, `email`, or `phone`. Send any field in the query params\n\n## Endpoint\n\n### GET`/v1/customer`\n\nRetrieves details of a single customer based on query parameters.\n\n### Request\n\n- Method: `GET`\n    \n- Query Parameters\n    \n- `customerId`: Customer ID\n    \n- `platformCustomerId`: Platform Customer ID\n    \n- `email`: Customer's email address\n    \n- `phone`: Customer's phone number  \n    Example query:\n    \n\n[https://dev-pos-api.zithara.com/v1/customer?](https://dev-pos-api.zithara.com/v1/customer?id=12304)customer[Id=12304](https://dev-pos-api.zithara.com/v1/customer?id=12304)\n\n### Response\n\nA successful response returns a JSON object with customer details.\n\n#### Sample Response\n\n``` json\n{\n    \"id\": \"134034\",\n    \"name\": \"Dileep Bez\",\n    \"first_name\": \"Dileep updated\",\n    \"last_name\": \"Dileep Bez\",\n    \"email\": \"\",\n    \"phone_number\": \"917275724262\",\n    \"whatsapp_phone_number\": \"917275724262\",\n    \"additional_emails\": null,\n    \"additional_phone_numbers\": null,\n    \"points\": \"0\",\n    \"referral_code\": null,\n    \"referred_by\": null,\n    \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n    \"sub_merchant_id\": \"535108e9-6ad7-47a5-9861-1e96cf654ec0\",\n    \"created_at\": \"2024-06-23T17:39:12.543Z\",\n    \"updated_at\": \"2024-06-23T19:55:47.429Z\",\n    \"user_id\": null,\n    \"customer_state\": \"lead\",\n    \"external_customer_id\": null,\n    \"occupations\": null,\n    \"profile_pic\": null,\n    \"facebook_id\": null,\n    \"instagram_id\": null,\n    \"whatsapp_id\": null,\n    \"shopify_id\": null,\n    \"instagram_profile_id\": null,\n    \"instagram_profile_pic\": null,\n    \"facebook_profile_pic\": null,\n    \"custom_attributes\": {},\n    \"employee_id\": null,\n    \"manager_id\": null,\n    \"platform_customer_id\": \"jdfsf\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "get customers",
+					"id": "10463e9d-569d-4b5c-88f0-1c8e416ed001",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"description": "Required",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://dev-pos-api.zithara.com/v1/customers?page=PAGE_NUMBER&pageSize=PAGE_SIZE",
+							"protocol": "https",
+							"host": [
+								"dev-pos-api",
+								"zithara",
+								"com"
+							],
+							"path": [
+								"v1",
+								"customers"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "PAGE_NUMBER",
+									"description": "number - optional"
+								},
+								{
+									"key": "pageSize",
+									"value": "PAGE_SIZE",
+									"description": "number - optional"
+								}
+							]
+						},
+						"description": "## Endpoint\n\n### Get Customers\n\n### GET`/v1/customers`\n\n- `page` - optional\n    \n- `pageSize` - optional\n    \n\nresponse\n\n``` json\n{\n    \"totalItems\": 44,\n    \"items\": [\n        {\n            \"id\": \"134048\",\n            \"name\": \"SRI R∆WIN K\",\n            \"first_name\": \"SRI\",\n            \"last_name\": \"K\",\n            \"email\": null,\n            \"phone_number\": \"916382502290\",\n            \"whatsapp_phone_number\": \"916382502290\",\n            \"additional_emails\": null,\n            \"additional_phone_numbers\": null,\n            \"points\": \"0\",\n            \"referral_code\": null,\n            \"reffered_by\": null,\n            \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"sub_merchant_id\": null,\n            \"created_at\": \"2024-06-24T09:58:49.425Z\",\n            \"updated_at\": \"2024-06-24T09:58:49.425Z\",\n            \"user_id\": null,\n            \"customer_state\": null,\n            \"external_customer_id\": null,\n            \"occupations\": null,\n            \"profile_pic\": null,\n            \"facebook_id\": null,\n            \"instagram_id\": null,\n            \"whatsapp_id\": \"916382502290\",\n            \"shopify_id\": null,\n            \"instagram_profile_id\": null,\n            \"instagram_profile_pic\": null,\n            \"facebook_profile_pic\": null,\n            \"custom_attributes\": null,\n            \"employee_id\": null,\n            \"manager_id\": null,\n            \"platform_customer_id\": null\n        },\n        {\n            \"id\": \"134034\",\n            \"name\": \"Dileep Bez\",\n            \"first_name\": \"Dileep updated\",\n            \"last_name\": \"Dileep Bez\",\n            \"email\": \"\",\n            \"phone_number\": \"917275724262\",\n            \"whatsapp_phone_number\": \"917275724262\",\n            \"additional_emails\": null,\n            \"additional_phone_numbers\": null,\n            \"points\": \"0\",\n            \"referral_code\": null,\n            \"reffered_by\": null,\n            \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"sub_merchant_id\": \"535108e9-6ad7-47a5-9861-1e96cf654ec0\",\n            \"created_at\": \"2024-06-23T17:39:12.543Z\",\n            \"updated_at\": \"2024-06-23T19:55:47.429Z\",\n            \"user_id\": null,\n            \"customer_state\": \"lead\",\n            \"external_customer_id\": null,\n            \"occupations\": null,\n            \"profile_pic\": null,\n            \"facebook_id\": null,\n            \"instagram_id\": null,\n            \"whatsapp_id\": null,\n            \"shopify_id\": null,\n            \"instagram_profile_id\": null,\n            \"instagram_profile_pic\": null,\n            \"facebook_profile_pic\": null,\n            \"custom_attributes\": {},\n            \"employee_id\": null,\n            \"manager_id\": null,\n            \"platform_customer_id\": \"jdfsf\"\n        },\n        {\n            \"id\": \"134033\",\n            \"name\": \"Dileep Bez\",\n            \"first_name\": \"Dileep updated\",\n            \"last_name\": \"Dileep Bez\",\n            \"email\": \"\",\n            \"phone_number\": \"917275724262\",\n            \"whatsapp_phone_number\": \"917275724262\",\n            \"additional_emails\": null,\n            \"additional_phone_numbers\": null,\n            \"points\": \"0\",\n            \"referral_code\": null,\n            \"reffered_by\": null,\n            \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"sub_merchant_id\": \"535108e9-6ad7-47a5-9861-1e96cf654ec0\",\n            \"created_at\": \"2024-06-23T17:38:41.314Z\",\n            \"updated_at\": \"2024-06-23T19:55:57.196Z\",\n            \"user_id\": null,\n            \"customer_state\": \"lead\",\n            \"external_customer_id\": null,\n            \"occupations\": null,\n            \"profile_pic\": null,\n            \"facebook_id\": null,\n            \"instagram_id\": null,\n            \"whatsapp_id\": null,\n            \"shopify_id\": null,\n            \"instagram_profile_id\": null,\n            \"instagram_profile_pic\": null,\n            \"facebook_profile_pic\": null,\n            \"custom_attributes\": {},\n            \"employee_id\": null,\n            \"manager_id\": null,\n            \"platform_customer_id\": \"jdfsdffdffffsdf\"\n        },\n        {\n            \"id\": \"134062\",\n            \"name\": \"Allu Venkey\",\n            \"first_name\": \"Allu\",\n            \"last_name\": \"Venkey\",\n            \"email\": null,\n            \"phone_number\": \"919398856862\",\n            \"whatsapp_phone_number\": \"919398856862\",\n            \"additional_emails\": null,\n            \"additional_phone_numbers\": null,\n            \"points\": \"0\",\n            \"referral_code\": null,\n            \"reffered_by\": null,\n            \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"sub_merchant_id\": null,\n            \"created_at\": \"2024-06-26T03:05:31.439Z\",\n            \"updated_at\": \"2024-06-26T06:12:30.290Z\",\n            \"user_id\": null,\n            \"customer_state\": \"lead\",\n            \"external_customer_id\": null,\n            \"occupations\": \"ddd\",\n            \"profile_pic\": null,\n            \"facebook_id\": null,\n            \"instagram_id\": null,\n            \"whatsapp_id\": \"919398856862\",\n            \"shopify_id\": null,\n            \"instagram_profile_id\": null,\n            \"instagram_profile_pic\": null,\n            \"facebook_profile_pic\": null,\n            \"custom_attributes\": {\n                \"transaction_amount\": \"444\",\n                \"last_visited_store\": \"333\"\n            },\n            \"employee_id\": null,\n            \"manager_id\": null,\n            \"platform_customer_id\": null\n        },\n        {\n            \"id\": \"134030\",\n            \"name\": \"Dileep Bez\",\n            \"first_name\": \"Dileep updated\",\n            \"last_name\": \"Dileep Bez\",\n            \"email\": \"\",\n            \"phone_number\": \"917275724262\",\n            \"whatsapp_phone_number\": \"917275724262\",\n            \"additional_emails\": null,\n            \"additional_phone_numbers\": null,\n            \"points\": \"0\",\n            \"referral_code\": null,\n            \"reffered_by\": null,\n            \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"sub_merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"created_at\": \"2024-06-23T17:34:49.837Z\",\n            \"updated_at\": \"2024-06-23T17:35:24.830Z\",\n            \"user_id\": null,\n            \"customer_state\": null,\n            \"external_customer_id\": null,\n            \"occupations\": null,\n            \"profile_pic\": null,\n            \"facebook_id\": null,\n            \"instagram_id\": null,\n            \"whatsapp_id\": null,\n            \"shopify_id\": null,\n            \"instagram_profile_id\": null,\n            \"instagram_profile_pic\": null,\n            \"facebook_profile_pic\": null,\n            \"custom_attributes\": {},\n            \"employee_id\": null,\n            \"manager_id\": null,\n            \"platform_customer_id\": \"jdfffffsdf\"\n        },\n        {\n            \"id\": \"134029\",\n            \"name\": \"Dileep Bez\",\n            \"first_name\": \"Dileep updated\",\n            \"last_name\": \"Dileep Bez\",\n            \"email\": \"\",\n            \"phone_number\": \"917275724262\",\n            \"whatsapp_phone_number\": \"917275724262\",\n            \"additional_emails\": null,\n            \"additional_phone_numbers\": null,\n            \"points\": \"0\",\n            \"referral_code\": null,\n            \"reffered_by\": null,\n            \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"sub_merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"created_at\": \"2024-06-23T17:14:10.802Z\",\n            \"updated_at\": \"2024-06-23T17:34:27.150Z\",\n            \"user_id\": null,\n            \"customer_state\": null,\n            \"external_customer_id\": null,\n            \"occupations\": null,\n            \"profile_pic\": null,\n            \"facebook_id\": null,\n            \"instagram_id\": null,\n            \"whatsapp_id\": null,\n            \"shopify_id\": null,\n            \"instagram_profile_id\": null,\n            \"instagram_profile_pic\": null,\n            \"facebook_profile_pic\": null,\n            \"custom_attributes\": {},\n            \"employee_id\": null,\n            \"manager_id\": null,\n            \"platform_customer_id\": \"jdfsdf\"\n        },\n        {\n            \"id\": \"134028\",\n            \"name\": \"Dileep Bez\",\n            \"first\n_name\": \"Dileep updated\",\n            \"last_name\": \"Dileep Bez\",\n            \"email\": \"\",\n            \"phone_number\": \"917275724262\",\n            \"whatsapp_phone_number\": \"917275724262\",\n            \"additional_emails\": null,\n            \"additional_phone_numbers\": null,\n            \"points\": \"0\",\n            \"referral_code\": null,\n            \"reffered_by\": null,\n            \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"sub_merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"created_at\": \"2024-06-23T17:13:20.795Z\",\n            \"updated_at\": \"2024-06-23T17:14:03.125Z\",\n            \"user_id\": null,\n            \"customer_state\": null,\n            \"external_customer_id\": null,\n            \"occupations\": null,\n            \"profile_pic\": null,\n            \"facebook_id\": null,\n            \"instagram_id\": null,\n            \"whatsapp_id\": null,\n            \"shopify_id\": null,\n            \"instagram_profile_id\": null,\n            \"instagram_profile_pic\": null,\n            \"facebook_profile_pic\": null,\n            \"custom_attributes\": {},\n            \"employee_id\": null,\n            \"manager_id\": null,\n            \"platform_customer_id\": \"sdfsdfsdfsdfffffsdsdfsdf\"\n        },\n        {\n            \"id\": \"134027\",\n            \"name\": \"Dileep Bez\",\n            \"first_name\": \"Dileep updated\",\n            \"last_name\": \"Dileep Bez\",\n            \"email\": \"\",\n            \"phone_number\": \"917275724262\",\n            \"whatsapp_phone_number\": \"917275724262\",\n            \"additional_emails\": null,\n            \"additional_phone_numbers\": null,\n            \"points\": \"0\",\n            \"referral_code\": null,\n            \"reffered_by\": null,\n            \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"sub_merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"created_at\": \"2024-06-23T17:10:37.492Z\",\n            \"updated_at\": \"2024-06-23T17:13:16.407Z\",\n            \"user_id\": null,\n            \"customer_state\": null,\n            \"external_customer_id\": null,\n            \"occupations\": null,\n            \"profile_pic\": null,\n            \"facebook_id\": null,\n            \"instagram_id\": null,\n            \"whatsapp_id\": null,\n            \"shopify_id\": null,\n            \"instagram_profile_id\": null,\n            \"instagram_profile_pic\": null,\n            \"facebook_profile_pic\": null,\n            \"custom_attributes\": {},\n            \"employee_id\": null,\n            \"manager_id\": null,\n            \"platform_customer_id\": \"sdfsdfsdfsdfsdsdfsdf\"\n        },\n        {\n            \"id\": \"134043\",\n            \"name\": \"35221b02-c600-46f7-bcab-549f399c2a8d-199981703208554-1719209726541-dummy\",\n            \"first_name\": \"35221b02-c600-46f7-bcab-549f399c2a8d-199981703208554-1719209726541-dummy\",\n            \"last_name\": null,\n            \"email\": null,\n            \"phone_number\": null,\n            \"whatsapp_phone_number\": null,\n            \"additional_emails\": null,\n            \"additional_phone_numbers\": null,\n            \"points\": \"0\",\n            \"referral_code\": null,\n            \"reffered_by\": null,\n            \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"sub_merchant_id\": null,\n            \"created_at\": \"2024-06-24T06:15:26.541Z\",\n            \"updated_at\": \"2024-06-24T06:15:26.541Z\",\n            \"user_id\": null,\n            \"customer_state\": null,\n            \"external_customer_id\": null,\n            \"occupations\": null,\n            \"profile_pic\": null,\n            \"facebook_id\": null,\n            \"instagram_id\": null,\n            \"whatsapp_id\": \"919133769781\",\n            \"shopify_id\": null,\n            \"instagram_profile_id\": null,\n            \"instagram_profile_pic\": null,\n            \"facebook_profile_pic\": null,\n            \"custom_attributes\": null,\n            \"employee_id\": null,\n            \"manager_id\": null,\n            \"platform_customer_id\": null\n        },\n        {\n            \"id\": \"134044\",\n            \"name\": null,\n            \"first_name\": null,\n            \"last_name\": null,\n            \"email\": null,\n            \"phone_number\": \"+917619163676\",\n            \"whatsapp_phone_number\": null,\n            \"additional_emails\": null,\n            \"additional_phone_numbers\": null,\n            \"points\": \"0\",\n            \"referral_code\": null,\n            \"reffered_by\": null,\n            \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"sub_merchant_id\": null,\n            \"created_at\": \"2024-06-24T06:21:47.920Z\",\n            \"updated_at\": \"2024-06-24T06:21:47.921Z\",\n            \"user_id\": null,\n            \"customer_state\": null,\n            \"external_customer_id\": null,\n            \"occupations\": null,\n            \"profile_pic\": null,\n            \"facebook_id\": null,\n            \"instagram_id\": null,\n            \"whatsapp_id\": \"917619163676\",\n            \"shopify_id\": null,\n            \"instagram_profile_id\": null,\n            \"instagram_profile_pic\": null,\n            \"facebook_profile_pic\": null,\n            \"custom_attributes\": null,\n            \"employee_id\": null,\n            \"manager_id\": null,\n            \"platform_customer_id\": null\n        }\n    ],\n    \"totalPages\": 5,\n    \"currentPage\": \"1\"\n}\n\n ```"
+					},
+					"response": []
+				}
+			],
+			"id": "dcff7a11-7400-4df8-896b-30a9068e9ee7",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0f29f611-41c4-4791-bfbe-e9f961797fd7",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"const clientId = \"1s8rfe0u2ur3ptgt9rutf963fd\";\r",
+							"const clientSecret = \"c89js12mptrd2uf6n3jjrav9km177i5jkm86c8anbo1nvuea7c3\";\r",
+							"\r",
+							"const base64Credentials = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');\r",
+							"\r",
+							"// Add Authorization header\r",
+							"\r",
+							"const loginRequest = {\r",
+							"    method: 'POST',\r",
+							"    url: 'https://zithara-pos-dev.auth.ap-south-1.amazoncognito.com/oauth2/token',\r",
+							"    header: {\r",
+							"        'Content-Type': 'application/x-www-form-urlencoded',\r",
+							"        'Authorization': `Basic ${base64Credentials}` // Make sure the authorization header is included in the request\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            { key: 'grant_type', value: 'client_credentials' }\r",
+							"        ]\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.sendRequest(loginRequest, (err, res) => {\r",
+							"    if (err) {\r",
+							"        console.log(err);\r",
+							"    } else {\r",
+							"     \r",
+							"\r",
+							"pm.variables.set(\"loginpos\", res.json().access_token);\r",
+							"    }\r",
+							"});\r",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "5671775a-b14e-4ab6-b71c-aeb41eec9a40",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Order API",
+			"item": [
+				{
+					"name": "get single order",
+					"id": "253fe98e-1175-45c9-8823-ead216634526",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"url": "http://dev-pos-api.zithara.com/v1/order/PLATFORM_ORDER_ID",
+						"description": "## Endpoint\n\n### GET `/v1/order/{PLATFORM_ORDER_ID}`\n\nRetrieves an order along with its order line items.\n\n**URL:** `http://dev-pos-api.zithara.com/v1/order/{PLATFORM_ORDER_ID}`\n\n- `{PLATFORM_ORDER_ID}`: The unique ID of the order on the platform. **Required.**\n    \n\nHere's the JSON response formatted:\n\n``` json\n[\n    {\n        \"id\": \"235\",\n        \"created_at\": \"2024-06-20T14:14:11.000Z\",\n        \"currency\": \"INR\",\n        \"current_subtotal_price\": \"5000.00\",\n        \"current_total_discounts\": \"0.00\",\n        \"current_total_price\": \"5000.00\",\n        \"current_total_tax\": \"0.00\",\n        \"fulfillment_status\": \"\",\n        \"name\": \"RKM/2200\",\n        \"note\": \"false\",\n        \"customer_id\": \"134064\",\n        \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n        \"sub_merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n        \"platform_order_id\": \"9g4s435ttfffhfdhkkyf337\",\n        \"order_line_items\": [\n            {\n                \"id\": \"325\",\n                \"price\": \"5000.00\",\n                \"product_id\": \"2302\",\n                \"quantity\": 1,\n                \"created_at\": \"2024-06-26T06:19:49.925Z\",\n                \"updated_at\": \"2024-06-26T06:19:49.925Z\",\n                \"platform_line_item_id\": \"161ffk8hf9ty838\"\n            }\n        ],\n        \"transactions\": [\n            {\n                \"id\": \"c1caed8f-bdd3-4224-8197-840fd2374b5b\",\n                \"created_at\": \"2024-06-20T14:14:11.000Z\",\n                \"updated_at\": \"2024-06-26T06:19:49.920Z\",\n                \"customer_id\": \"134064\",\n                \"transaction_original_amount\": 5000,\n                \"transaction_final_amount\": 5000,\n                \"transaction_mode\": \"Cash\",\n                \"sub_merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n                \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n                \"status\": \"paid\",\n                \"platform_transaction_id\": \"Or4345 -54fffhfkhttsdhf01-0017\"\n            }\n        ],\n        \"customer\": {\n            \"id\": \"134064\",\n            \"name\": \"Dileep Bezdfdsaf\",\n            \"first_name\": \"Dileep updated\",\n            \"last_name\": \"Dileep Bez\",\n            \"email\": null,\n            \"phone_number\": \"919886668886\",\n            \"whatsapp_phone_number\": \"917275724262\",\n            \"points\": \"22334352\",\n            \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"sub_merchant_id\": \"503af5ca-96f9-43f7-a0f8-4cef9cb365ef\",\n            \"created_at\": \"2024-06-26T06:19:49.895Z\",\n            \"updated_at\": \"2024-06-26T11:40:01.799Z\",\n            \"customer_state\": \"lead\",\n            \"occupations\": \"222\",\n            \"custom_attributes\": {\n                \"transaction_amount\": \"324\",\n                \"transaction_date\": \"2024-06-19T00:00:00.000Z\",\n                \"order_date\": \"2024-06-23T00:00:00.000Z\",\n                \"last_visited_store\": \"dasf\",\n                \"tests_multiple_select\": [\n                    \"hey 1\",\n                    \"hey 2\"\n                ],\n                \"spouce_phone\": \"1232324\",\n                \"question_3_for_feedback\": \"option 4\",\n                \"shipping_street\": \"adsfadf\"\n            },\n            \"employee_id\": \"108\",\n            \"manager_id\": \"110\",\n            \"platform_customer_id\": \"hsdvfffyyyfsdg\"\n        }\n    }\n]\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "create order",
+					"id": "0d9c0c1b-1057-42d3-b6bb-5e05776f6f01",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer\": {\r\n        \"platform_customer_id\": \"72246\",\r\n        \"phone_number\": \"917275724262\",\r\n        \"first_name\": \"Dileep Bez\",\r\n        \"last_name\": \"Dileep Bez\",\r\n        \"name\": \"Dileep Bez\",\r\n        \"whatsapp_phone_number\": \"917275724262\",\r\n        \"email\": false,\r\n        \"custom_attributes\": {}\r\n    },\r\n    \"order_line_item\": [\r\n        {\r\n            \"status\": \"\",\r\n            \"platform_line_item_id\": \"16189838\",\r\n            \"price\": 5000.0,\r\n            \"taxable\": true,\r\n            \"discount_amount\": 0.0,\r\n            \"sku\": \"\",\r\n            \"product_id\": 2302,\r\n            \"gift_card\": false,\r\n            \"custom_attributes\": {},\r\n            \"product_name\": \"5k Gift card\",\r\n            \"quantity\": 1.0\r\n        }\r\n    ],\r\n    \"order\": {\r\n        \"status\": \"paid\",\r\n        \"current_subtotal_price\": 5000.0,\r\n        \"billing_address\": {},\r\n        \"payment_status\": \"\",\r\n        \"currency\": \"INR\",\r\n        \"platform_order_id\": \"96984554337\",\r\n        \"name\": \"RKM/2200\",\r\n        \"current_total_tax\": 0.0,\r\n        \"created_at\": \"2024-06-20 14:14:11\",\r\n        \"custom_attributes\": {\r\n            \"cashback_amount\": 0.0,\r\n            \"cashback_redeemption_order\": false,\r\n            \"pos_reference\": \"Order 44254-001-0017\",\r\n            \"card_order\": false,\r\n            \"cashback_redeemption_amount\": 0.0,\r\n            \"card_no\": false\r\n        },\r\n        \"note\": false,\r\n        \"fulfillment_status\": \"\",\r\n        \"current_total_discounts\": 0.0,\r\n        \"current_total_price\": 5000.0,\r\n        \"shipping_address\": {}\r\n    },\r\n    \"transactions\": [\r\n        {\r\n            \"status\": \"paid\",\r\n            \"transaction_final_amount\": 5000.0,\r\n            \"custom_attributes\": {},\r\n            \"transaction_mode\": \"Cash\",\r\n            \"created_at\": \"2024-06-20 14:14:11\",\r\n            \"platform_transaction_id\": \"Order 4234-5001-0017\",\r\n            \"transaction_original_amount\": 5000.0,\r\n            \"financial_status\": \"\",\r\n            \"transaction_type\": \"\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dev-pos-api.zithara.com/v1/order",
+						"description": "## Endpoint\n\n### POST `/v1/order`\n\nCreates a new order with the specified details.\n\n**URL:** `https://dev-pos-api.zithara.com/v1/order`\n\n- Adds a default amount of points for single transaction\n    \n\n## Request Body\n\nThe request body must be a JSON object with the following structure:\n\n``` json\n{\n    \"customer\": {\n        \"platform_customer_id\": \"hyyfsdg\",\n        \"first_name\": \"Dileep updated\",\n          \"phone_number\": \"919886668886\",\n        \"last_name\": \"Dileep Bez\",\n        \"name\": \"Dileep Bez\",\n        \"whatsapp_phone_number\": \"917275724262\",\n        \"custom_attributes\": {}\n    },\n    \"order_line_item\": [\n        {\n            \"platform_line_item_id\": \"161f9ty838\",\n            \"price\": 5000.0,\n            \"taxable\": true,\n            \"discount_amount\": 0.0,\n            \"product_id\": 2302,\n            \"gift_card\": false,\n            \"custom_attributes\": {},\n            \"product_name\": \"5k Gift card\",\n            \"quantity\": 1.0\n        }\n    ],\n    \"order\": {\n        \"status\": \"paid\",\n        \"current_subtotal_price\": 5000.0,\n        \"billing_address\": {},\n        \"currency\": \"INR\",\n        \"platform_order_id\": \"9g4dhkkyf337\",\n        \"name\": \"RKM/2200\",\n        \"current_total_tax\": 0.0,\n        \"created_at\": \"2024-06-20 14:14:11\",\n        \"custom_attributes\": {\n            \"cashback_amount\": 0.0,\n            \"cashback_redeemption_order\": false,\n            \"pos_reference\": \"Order -001-0017\",\n            \"card_order\": false,\n            \"cashback_redeemption_amount\": 0.0,\n            \"card_no\": false\n        },\n        \"note\": false,\n        \"current_total_discounts\": 0.0,\n        \"current_total_price\": 5000.0,\n        \"shipping_address\": {}\n    },\n    \"transactions\": [\n        {\n            \"status\": \"paid\",\n            \"transaction_final_amount\": 5000.0,\n            \"custom_attributes\": {},\n            \"transaction_mode\": \"Cash\",\n            \"created_at\": \"2024-06-20 14:14:11\",\n            \"platform_transaction_id\": \"Or4345 -54f1-0017\",\n            \"transaction_original_amount\": 5000.0\n        }\n    ]\n}\n\n ```\n\nEach of the fields in the request body is essential for creating an order and must be provided in the correct format as specified.\n\n**Response**\n\n``` json\n{\n    \"status\": 201,\n    \"message\": \"order created\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "update order",
+					"id": "a8c6d293-8a0d-4367-9e56-dc7f26b1f5f9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"unpaid\",\r\n    \"current_subtotal_price\": 5000.0,\r\n    \"billing_address\": {},\r\n    \"payment_status\": \"\",\r\n    \"currency\": \"INR\",\r\n    \"platform_order_id\": \"9g4s435ttffffdhkkyf337\",\r\n    \"name\": \"RKM/2200\",\r\n    \"current_total_tax\": 0.0,\r\n    \"created_at\": \"2024-06-20 14:14:11\",\r\n    \"custom_attributes\": {\r\n        \"cashback_amount\": 0.0,\r\n        \"cashback_redeemption_order\": false,\r\n        \"pos_reference\": \"Order -001-0017\",\r\n        \"card_order\": false,\r\n        \"cashback_redeemption_amount\": 0.0,\r\n        \"card_no\": false\r\n    },\r\n    \"note\": false,\r\n    \"fulfillment_status\": \"\",\r\n    \"current_total_discounts\": 0.0,\r\n    \"current_total_price\": 5000.0,\r\n    \"shipping_address\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dev-pos-api.zithara.com/order",
+						"description": "## Endpoint\n\n### PATCH `/v1/customer/order`\n\n**Response**\n\n``` json\n{\n    \"message\": \"order updated\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "get customer orders",
+					"id": "0666c4a6-a424-4b95-84bb-9dabf343dcf9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://dev-pos-api.zithara.com/v1/customer/order/PLATFORM_CUSTOMER_ID?page=PAGE_NUMBER&pageSize=PAGE_SIZE",
+							"protocol": "https",
+							"host": [
+								"dev-pos-api",
+								"zithara",
+								"com"
+							],
+							"path": [
+								"v1",
+								"customer",
+								"order",
+								"PLATFORM_CUSTOMER_ID"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "PAGE_NUMBER",
+									"description": "number - optional"
+								},
+								{
+									"key": "pageSize",
+									"value": "PAGE_SIZE",
+									"description": "number - optional"
+								}
+							]
+						},
+						"description": "# Customer Orders\n\n## Endpoint\n\n### GET `/v1/customer/order/{PLATFORM_CUSTOMER_ID}`\n\nRetrieves the orders for a specific customer. Pagination is supported through optional query parameters.\n\n**URL:** [https://dev-pos-api.zithara.com/v1](https://dev-pos-api.zithara.com/v1)`/customer/order/{PLATFORM_CUSTOMER_ID}`\n\n- `{PLATFORM_CUSTOMER_ID}`: The unique ID of the customer on the platform. **Required.**\n    \n\n**Optional Query Parameters:**\n\n| Parameter | Type | Description | Required |\n| --- | --- | --- | --- |\n| page | integer | The page number for pagination. | No |\n| pageSize | integer | The number of items per page for pagination. | No |\n\n**Response**\n\n### Orders Information\n\n``` json\n{\n    \"totalItems\": 1,\n    \"items\": [\n        {\n            \"id\": \"226\",\n            \"admin_graphql_api_id\": null,\n            \"app_id\": null,\n            \"browser_ip\": null,\n            \"buyer_accepts_marketing\": null,\n            \"cancel_reason\": null,\n            \"cancelled_at\": null,\n            \"cart_token\": null,\n            \"checkout_id\": null,\n            \"checkout_token\": null,\n            \"closed_at\": null,\n            \"company\": null,\n            \"confirmation_number\": null,\n            \"confirmed\": null,\n            \"contact_email\": null,\n            \"created_at\": \"0002-11-01T00:00:00.000Z\",\n            \"currency\": null,\n            \"current_subtotal_price\": null,\n            \"current_total_discounts\": null,\n            \"current_total_price\": null,\n            \"current_total_tax\": null,\n            \"customer_locale\": null,\n            \"device_id\": null,\n            \"email\": null,\n            \"estimated_taxes\": null,\n            \"financial_status\": null,\n            \"fulfillment_status\": null,\n            \"landing_site\": null,\n            \"landing_site_ref\": null,\n            \"location_id\": null,\n            \"merchant_of_record_app_id\": null,\n            \"name\": \"#1234\",\n            \"note\": null,\n            \"number\": null,\n            \"order_number\": null,\n            \"order_status_url\": null,\n            \"presentment_currency\": null,\n            \"processed_at\": null,\n            \"reference\": null,\n            \"referring_site\": null,\n            \"source_identifier\": null,\n            \"source_name\": \"Test\",\n            \"source_url\": null,\n            \"subtotal_price\": null,\n            \"tags\": null,\n            \"tax_exempt\": null,\n            \"taxes_included\": true,\n            \"test\": null,\n            \"token\": null,\n            \"total_discounts\": null,\n            \"total_line_items_price\": null,\n            \"total_outstanding\": null,\n            \"total_price\": null,\n            \"total_tip_received\": null,\n            \"total_weight\": null,\n            \"updated_at\": \"2024-06-23T17:14:25.063Z\",\n            \"customer_id\": \"134025\",\n            \"note_attributes\": null,\n            \"payment_gateway_names\": null,\n            \"tax_lines\": null,\n            \"billing_address\": null,\n            \"shipping_address\": \"THis is shipping address\",\n            \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"sub_merchant_id\": null,\n            \"shopify_customer_id\": null,\n            \"transaction_id\": null,\n            \"platform_order_id\": null\n        }\n    ],\n    \"totalPages\": 1,\n    \"currentPage\": \"1\"\n}\n\n ```\n\nThis JSON provides information about orders, including details such as order ID, creation and update timestamps, customer ID, shipping address, and other relevant attributes."
+					},
+					"response": []
+				},
+				{
+					"name": "add order line item",
+					"id": "ec70de36-e116-454a-a78d-c954369e5f14",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"platform_line_item_id\": \"161f9ty4838\",\r\n    \"price\": 5000.0,\r\n    \"taxable\": true,\r\n    \"discount_amount\": 0.0,\r\n    \"product_id\": 2302,\r\n    \"gift_card\": false,\r\n    \"custom_attributes\": {},\r\n    \"product_name\": \"5k Gift card\",\r\n    \"quantity\": 1.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/v1/order/{{PLATFORM_ORDER_ID}}",
+						"description": "## Endpoint\n\n### POST `/v1/customer/order/{PLATFORM_ORDER_ID}`\n\n**response**\n\n``` json\n{\n    \"message\": \"added order item\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "update order line item",
+					"id": "9c49d3c0-ee0f-4953-9235-fcb1e4f00b6e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"\",\r\n    \"platform_line_item_id\": \"161h9838\",\r\n    \"price\": 2342340,\r\n    \"taxable\": true,\r\n    \"discount_amount\": 0.0,\r\n    \"sku\": \"\",\r\n    \"product_id\": 2302,\r\n    \"gift_card\": false,\r\n    \"custom_attributes\": {},\r\n    \"product_name\": \"5k Gift card\",\r\n    \"quantity\": 1.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dev-pos-api.zithara.com/order-item/",
+						"description": "## Endpoint\n\n### PATCH `/v1/customer/order-item`\n\n``` json\n{\n    \"status\": 200,\n    \"message\": \"updated order line item\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "delete order line item",
+					"id": "32885ed3-b566-48d1-aa18-351289c1dabf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3000/v1/order-item/{{PLATFORM_ORDER_LINE_ITEM_ID}}",
+						"description": "## Endpoint\n\n### DELETE `/v1/order/{PLATFORM_ORDER_ID}`\n\ndelete Orderline item\n\n**URL:** `http://dev-pos-api.zithara.com/v1/order/{PLATFORM_ORDER_ID}`\n\n- `{PLATFORM_ORDER_ID}`: The unique ID of the order on the platform. **Required.**\n    \n\n``` json\n{\n    \"status\": 200,\n    \"message\": \"order line item deleted\"\n}\n\n ```"
+					},
+					"response": []
+				}
+			],
+			"id": "b908e76e-5b2d-4b9c-9801-3c75c09620c5"
+		},
+		{
+			"name": "Transaction API",
+			"item": [
+				{
+					"name": "get transaction",
+					"id": "2e4d22fb-6344-4321-9663-bd1ee318bcd7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://dev-pos-api.zithara.com/v1/transaction?platformTransactionId=45",
+							"protocol": "https",
+							"host": [
+								"dev-pos-api",
+								"zithara",
+								"com"
+							],
+							"path": [
+								"v1",
+								"transaction"
+							],
+							"query": [
+								{
+									"key": "platformTransactionId",
+									"value": "45"
+								}
+							]
+						},
+						"description": "## Endpoint\n\n### GET `/v1/transaction`\n\nRetrieves a transaction based on either the internal transaction ID or the platform transaction ID.\n\n**URL:** `https://dev-pos-api.zithara.com/v1/transaction?platformTransactionId=45`\n\n**Query Parameters:**\n\n| Parameter | Type | Description | Required |\n| --- | --- | --- | --- |\n| id | string | The internal transaction ID. Use this or `platformTransactionId`. | No |\n| platformTransactionId | string | The platform transaction ID. Use this or `id`. | No |\n\n**Response**\n\n### Transaction Details\n\n``` json\n{\n    \"id\": \"090087d9-9876-4884-b621-7abdafb2b040\",\n    \"created_at\": \"2024-06-20T14:14:11.000Z\",\n    \"updated_at\": \"2024-06-24T12:27:17.198Z\",\n    \"customer_id\": \"134051\",\n    \"vendor_id\": null,\n    \"amt_credit_debit\": null,\n    \"transaction_original_amount\": 3000,\n    \"transaction_ref_id\": null,\n    \"transaction_type\": \"\",\n    \"points_credited\": 0,\n    \"points_debited\": 0,\n    \"total_points_before_transaction\": 0,\n    \"transaction_final_amount\": 3000,\n    \"transaction_deduction_amount\": null,\n    \"transaction_mode\": \"Cash\",\n    \"sub_merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n    \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n    \"total_points_after_transaction\": 0,\n    \"transaction_amount_with_gst\": null,\n    \"status\": \"paid\",\n    \"financial_status\": \"\",\n    \"order_id\": \"232\",\n    \"is_redeemable\": false,\n    \"invoice\": null,\n    \"advance_amount\": null,\n    \"tender_amount\": null,\n    \"discount_amount\": 0,\n    \"custom_attributes\": {},\n    \"platform_transaction_id\": \"161k8h9ty838_points_2\"\n}\n\n ```\n\nThis JSON represents detailed information about a transaction, including its ID, timestamps, customer and merchant IDs, transaction amounts, mode of transaction, status, and other relevant attributes."
+					},
+					"response": []
+				}
+			],
+			"id": "33737a9b-7b49-4399-ac5b-1c3e49101596"
+		},
+		{
+			"name": "Loyalty Points API",
+			"item": [
+				{
+					"name": "get loyalty points",
+					"id": "44f2669b-a4ef-4c75-80cd-5dfd4687671a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://dev-pos-api.zithara.com/v1/customer/loyalty-points?platformCustomerId=PLATFORM_TRANSACTION_ID",
+							"protocol": "https",
+							"host": [
+								"dev-pos-api",
+								"zithara",
+								"com"
+							],
+							"path": [
+								"v1",
+								"customer",
+								"loyalty-points"
+							],
+							"query": [
+								{
+									"key": "platformCustomerId",
+									"value": "PLATFORM_TRANSACTION_ID"
+								}
+							]
+						},
+						"description": "## Endpoint\n\n### GET `/v1/customer/loyalty-points`\n\nRetrieves the loyalty points for a specific customer based on the provided query parameter.\n\n**URL:** `https://dev-pos-api.zithara.com/v1/customer/loyalty-points?platformCustomerId=PLATFORM_TRANSACTION_ID`\n\n**Query Parameters:** (One of these is required)\n\n| Parameter | Type | Description | Required |\n| --- | --- | --- | --- |\n| platformCustomerId | string | The unique ID of the customer on the platform. | No |\n| email | string | The email address of the customer. | No |\n| phone | string | The phone number of the customer. | No |\n| customerId | string | The id of the customer. | No |\n\n### Response Body\n\n``` json\n{\n    \"success\": true,\n    \"data\": {\n        \"id\": \"45\",\n        \"customer_id\": \"150719\",\n        \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n        \"points\": 4096,\n        \"created_at\": \"2024-06-28T11:54:43.282Z\",\n        \"updated_at\": \"2024-06-28T11:55:55.571Z\",\n        \"config\": {\n            \"updated_at\": \"2024-06-28T12:16:21.073Z\",\n            \"bonus_points\": [\n                {\n                    \"name\": \"signed_up\",\n                    \"label\": \"Sign Up Points\",\n                    \"expiry\": {\n                        \"value\": 45,\n                        \"unit\": \"days\"\n                    },\n                    \"points\": 100\n                },\n                {\n                    \"name\": \"referral\",\n                    \"label\": \"Referral Points\",\n                    \"expiry\": {\n                        \"value\": 2,\n                        \"unit\": \"months\"\n                    },\n                    \"points\": 75\n                },\n                {\n                    \"name\": \"order_purchased\",\n                    \"label\": \"Order Points\",\n                    \"expiry\": {\n                        \"value\": 1,\n                        \"unit\": \"year\"\n                    },\n                    \"points\": 150\n                },\n                {\n                    \"name\": \"media\",\n                    \"label\": \"Media Points\",\n                    \"expiry\": {\n                        \"value\": \"\",\n                        \"unit\": \"no expiry\"\n                    },\n                    \"points\": 50\n                }\n            ],\n            \"created_at\": \"2024-06-24T08:05:58.233Z\",\n            \"conversion\": [\n                {\n                    \"add\": [\n                        {\n                            \"amount\": 500,\n                            \"id\": \"default\",\n                            \"type\": \"fixed\",\n                            \"value\": 50\n                        },\n                        {\n                            \"amount\": 2000,\n                            \"id\": \"1c0cb445-fde7-4d65-84fc-ea1f9d75c8da\",\n                            \"type\": \"percentage\",\n                            \"value\": \"12\"\n                        },\n                        {\n                            \"amount\": 5000,\n                            \"id\": \"a4bba515-cdd2-4f34-add7-325169cf42ad\",\n                            \"type\": \"same as amount\",\n                            \"value\": 5000\n                        }\n                    ],\n                    \"redeem\": {\n                        \"is_max_limit\": false,\n                        \"amount\": 2000,\n                        \"max_redeem_limit\": 3000,\n                        \"is_min_limit\": true,\n                        \"min_redeem_limit\": 1000,\n                        \"points\": 1000\n                    }\n                }\n            ],\n            \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n            \"sub_merchant_id\": \"ALL\",\n            \"name\": \"test1\"\n        }\n    },\n    \"status\": 200\n}\n\n ```\n\n### Points Information\n\n- **Original Points Left for Customer**: 4096\n    \n\n### Earning Points\n\n1. **Sign-Up Points**\n    \n    - **Points**: 100\n        \n    - **Expiry**: 45 days\n        \n2. **Referral Points**\n    \n    - **Points**: 75\n        \n    - **Expiry**: 2 months\n        \n3. **Order-Purchased Points**\n    \n    - **Points**: 150 per transaction\n        \n    - **Expiry**: 1 year\n        \n4. **Media Points**\n    \n    - **Points**: 50\n        \n    - **Expiry**: No expiry\n        \n\n## Redeeming Points\n\n### Redemption Rules\n\n- **Maximum Limit**:\n    \n    - If `is_max_limit` is `false`, the user can redeem as many points as they want.\n        \n    - If `is_max_limit` is `true`, the user can redeem points up to a certain limit.\n        \n- **Minimum Limit**:\n    \n    - If `is_min_limit` is `false`, the user can redeem as few points as they want.\n        \n    - If `is_min_limit` is `true`, the user must redeem a minimum amount of points.\n        \n\n### Redemption Object\n\n- **Amount**: 2000\n    \n- **Maximum Redeem Limit**: 3000\n    \n- **Minimum Redeem Limit**: 1000\n    \n- **Points**: 1000\n    \n\nThe customer can redeem `x` amount for `y` points as specified in the `redeem` object.\n\n## Adding Points\n\n### Rules for Adding Points\n\n1. **Amount ≤ 500**:\n    \n    - **Points Added**: 50\n        \n2. **Amount > 2000 and ≤ 5000**:\n    \n    - **Points Added**: 12% of the amount\n        \n3. **Amount > 5000**:\n    \n    - **Points Added**: Equal to the amount"
+					},
+					"response": []
+				},
+				{
+					"name": "add loyalty points",
+					"id": "8e36410f-20b2-4e26-9668-16dec06acd70",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{loginpos}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"action\":\"order_purchased\",\r\n    \"amount\":500,\r\n    \"customer_id\":134025\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/v1/customer/loyalty-points",
+						"description": "# add loyalty points\n\n## Endpoint\n\n### POST `/v1/loyalty-points`\n\n### Completes the redemption of loyalty points for a customer.\n\n**URL:** [https://dev-pos-api.zithara.com/v1](https://dev-pos-api.zithara.com/v1)`/loyalty-points`\n\nNOTE: amount is required in the body if the action is order_purchased\n\nactions-accepted - `signed_up`,`referral,order_purchased`\n\n**Response**\n\n``` json\n{\n    \"message\": \"added points\",\n    \"result\": {\n        \"success\": true,\n        \"data\": {\n            \"transaction\": {\n                \"created_at\": \"2024-06-26T10:10:38.265Z\",\n                \"updated_at\": \"2024-06-26T10:10:38.316Z\",\n                \"id\": \"a8655db2-8c9e-4b8b-ad1c-12efac81ca2e\",\n                \"customer_id\": \"134025\",\n                \"merchant_id\": \"35221b02-c600-46f7-bcab-549f399c2a8d\",\n                \"points\": 50,\n                \"used_points\": 0,\n                \"remaining_points\": 50,\n                \"action\": \"order_purchased\",\n                \"expiry_time\": \"2024-06-26T10:10:38.264Z\",\n                \"status\": \"not_used\"\n            }\n        }\n    }\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "initiate redemption",
+					"id": "d24bff76-3136-4a97-8ee4-27f6d97fc3f2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"points\":5,\r\n    \"customer_id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dev-pos-api.zithara.com/v1/initiate-redemption",
+						"description": "## Endpoint\n\n### POST `/v1/initiate-redemption`\n\nInitiates the redemption of loyalty points for a customer.\n\n**URL:** `https://dev-pos-api.zithara.com/v1/initiate-redemption`\n\n## Request Body\n\nThe request body must be a JSON object with the following structure:\n\n| Field | Type | Description | Required |\n| --- | --- | --- | --- |\n| points | integer | The number of points to redeem. | Yes |\n| customer_id | integer | The internal customer ID. | No |\n| platform_customer_id | string | The unique ID of the customer on the platform. | No |\n| phone_number | string | The phone number of the customer. | No |\n| email | string | The email address of the customer. | No |\n\n**Note:** One of `id`, `platform_customer_id`, `phone_number`, or `email` must be provided along with `points`.\n\n### Example Request Body\n\n``` json\n{\n    \"points\": 5,\n    \"id\": 1\n}\n\n ```\n\n### Response Body\n\n``` json\n{\n    \"success\": true,\n    \"data\": {\n        \"message\": \"OTP sent successfully\",\n        \"sentTo\": \"919398856866\"\n    },\n    \"status\": 200\n}\n\n ```\n\nThis JSON represents the response body indicating that an OTP (One-Time Password) was sent successfully to the phone number \"919398856866\". The status code is 200, indicating a successful operation."
+					},
+					"response": []
+				},
+				{
+					"name": "complete redemption",
+					"id": "8af81179-c56b-4c90-aa46-7322bcc14700",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_id\":5343,\r\n    \"otp\":\"599426\",\r\n    \"points\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dev-pos-api.zithara.com/v1/complete-redemption",
+						"description": "## Endpoint\n\n### POST `/v1/complete-redemption`\n\nCompletes the redemption of loyalty points for a customer.\n\n**URL:** `http://localhost:3000/v1/complete-redemption`\n\n## Request Body\n\nThe request body must be a JSON object with the following structure:\n\n| Field | Type | Description | Required |\n| --- | --- | --- | --- |\n| customer_id | integer | The internal customer ID. | No |\n| platform_customer_id | string | The unique ID of the customer on the platform. | No |\n| phone_number | string | The phone number of the customer. | No |\n| email | string | The email address of the customer. | No |\n| otp | string | The OTP for redemption verification. | Yes |\n| points | integer | The number of points to redeem. | Yes |\n\n**Note:** One of `id`, `platform_customer_id`, `phone_number`, or `email` must be provided along with `otp` and `points`.\n\n### Example Request Body\n\n``` json\n{\n    \"customer_id\": 1,\n    \"otp\": \"599426\",\n    \"points\": 5\n}\n\n ```\n\n### Response Body\n\n``` json\n{\n    \"success\": true,\n    \"data\": {\n        \"amount\": 2000\n    },\n    \"status\": 200\n}\n\n ```\n\nThis JSON represents the response body indicating a successful response with an amount of 2000. The status code is 200, indicating a successful operation."
+					},
+					"response": []
+				}
+			],
+			"id": "4f7778eb-3471-4170-9152-963d40d14563"
+		},
+		{
+			"name": "Cart API",
+			"item": [
+				{
+					"name": "create cart",
+					"id": "8cde4f5f-4a16-48e1-a109-1efb2f62a21e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer\": {\r\n        \"platform_customer_id\": \"hsdfdfsdfsdg\",\r\n        \"first_name\": \"Dileep updated\",\r\n        \"last_name\": \"Dileep Bez\",\r\n        \"name\": \"Dileep Bez\",\r\n        \"whatsapp_phone_number\": \"917275724262\",\r\n        \"email\": false,\r\n        \"custom_attributes\": {}\r\n    },\r\n    \"cart_item\": [\r\n        {\r\n            \"platform_cart_item_id\": \"16189838\",\r\n            \"price\": 5000.0,\r\n            \"product_id\": 2302,\r\n            \"quantity\": 1.0\r\n        }\r\n    ],\r\n    \"cart\": {\r\n        \"currency\": \"INR\",\r\n        \"platform_cart_id\": \"9g4sdfsdf337\",\r\n        \"name\": \"RKM/2200\",\r\n        \"created_at\": \"2024-06-20 14:14:11\",\r\n        \"total_tax\": 0.0,\r\n        \"total_price\": 5000.0,\r\n        \"shopify_customer_id\":45\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dev-pos-api.zithara.com/v1/cart",
+						"description": "## Endpoint\n\n### POST `/v1/cart`\n\nCreates a new cart with the specified details.\n\n**URL:** `http://localhost:3000/v1/cart`\n\n## Request Body\n\nThe request body must be a JSON object with the following structure:\n\n### Customer\n\n### Example Request Body\n\n``` json\n{\n    \"customer\": {\n        \"platform_customer_id\": \"hsdfdfsdfsdg\",\n        \"first_name\": \"Dileep updated\",\n        \"last_name\": \"Dileep Bez\",\n        \"name\": \"Dileep Bez\",\n        \"whatsapp_phone_number\": \"917275724262\",\n        \"email\": false,\n        \"custom_attributes\": {}\n    },\n    \"cart_item\": [\n        {\n            \"platform_cart_item_id\": \"16189838\",\n            \"price\": 5000.0,\n            \"product_id\": 2302,\n            \"quantity\": 1.0\n        }\n    ],\n    \"cart\": {\n        \"currency\": \"INR\",\n        \"platform_cart_id\": \"9g4sdfsdf337\",\n        \"name\": \"RKM/2200\",\n        \"created_at\": \"2024-06-20 14:14:11\",\n        \"total_tax\": 0.0,\n        \"total_price\": 5000.0,\n        \"shopify_customer_id\": 45\n    }\n}\n\n ```\n\n**Response Body**\n\n``` json\n{  \n\"status\": 201,  \n\"message\": \"cart created\"  \n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "update cart",
+					"id": "87bfe0a4-574e-4747-99fe-119860d649fa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"currency\": \"INR\",\r\n    \"platform_cart_id\": \"9g4sdfsdf337\",\r\n    \"name\": \"sdfsdfsdfsdfsdfsdfsdfsdfsdf\",\r\n    \"created_at\": \"2024-06-20 14:14:11\",\r\n    \"total_tax\": 0.0,\r\n    \"total_price\": 5000.0,\r\n    \"shopify_customer_id\": 45\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dev-pos-api.zithara.com/v1/cart",
+						"description": "### patch `/v1/cart`\n\n**Response**\n\n``` json\n{\n    \"status\": 200,\n    \"message\": \"cart updated\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "delete cart item",
+					"id": "1ae742ed-f8b7-4d02-9763-c013197128ef",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"url": "https://dev-pos-api.zithara.com/v1/cart-item/PLATFORM_CART_ITEM_ID",
+						"description": "## Endpoint\n\n### DELETE `/v1/cart-item/{PLATFORM_CART_ITEM_ID}`\n\nDeletes a specific cart item based on the provided platform cart item ID.\n\n**URL:** `http://localhost:3000/v1/cart-item/{PLATFORM_CART_ITEM_ID}`\n\n- `{PLATFORM_CART_ITEM_ID}`: The unique ID of the cart item on the platform. **Required.**\n    \n\n## Request\n\n### Example Request\n\n```\nDELETE /v1/cart-item/16189838 HTTP/1.1\nHost: localhost:3000\nContent-Type: application/json\n\n ```\n\n**Response**\n\n``` json\n{\n    \"status\": 200,\n    \"message\": \"cart item deleted\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "update cart item",
+					"id": "1a923f89-6bbd-4ad7-bcbc-035d9ea2c30a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"platform_cart_item_id\": \"  \",\r\n    \"price\": 778.0,\r\n    \"product_id\": 2302,\r\n    \"quantity\": 1.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dev-pos-api.zithara.com/v1/cart-item",
+						"description": "# Update Cart Item API Documentation\n\n## Endpoint\n\n### PATCH `/v1/cart-item`\n\nUpdates a specific cart item with the provided details.\n\n**URL:** `http://localhost:3000/v1/cart-item`\n\n## Request Body\n\nThe request body must be a JSON object with the following structure:\n\n| Field | Type | Description | Required |\n| --- | --- | --- | --- |\n| platform_cart_item_id | string | The unique ID of the cart item on the platform. | Yes |\n| price | float | The updated price of the cart item. | Yes |\n| product_id | integer | The ID of the product. | Yes |\n| quantity | float | The updated quantity of the cart item. | Yes |\n\n### Example Request Body\n\n``` json\n{\n    \"platform_cart_item_id\": \"16189838\",\n    \"price\": 778.0,\n    \"product_id\": 2302,\n    \"quantity\": 1.0\n}\n\n ```\n\n```json\n\n```"
+					},
+					"response": []
+				},
+				{
+					"name": "add cart item",
+					"id": "b8dd9767-e1b8-4308-a07f-992fd47f663e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"platform_cart_item_id\": \"161839838\",\r\n    \"price\": 5000.0,\r\n    \"product_id\": 2302,\r\n    \"quantity\": 1.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dev-pos-api.zithara.com/v1/cart-item/PLATFORM_CART_ID",
+						"description": "# Add Cart Item API Documentation\n\n## Endpoint\n\n### POST `/v1/cart-item/{PLATFORM_CART_ID}`\n\nAdds a new cart item to the specified cart.\n\n**URL:** `http://localhost:3000/v1/cart-item/{PLATFORM_CART_ID}`\n\n- `{PLATFORM_CART_ID}`: The unique ID of the cart on the platform. **Required.**\n    \n\n### Example Request Body\n\n``` javascript\n{\n    \"platform_cart_item_id\": \"161839838\",\n    \"price\": 5000.0,\n    \"product_id\": 2302,\n    \"quantity\": 1.0\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "delete cart",
+					"id": "e2be6925-b1fd-41c6-868a-812056448a09",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"url": "https://dev-pos-api.zithara.com/v1/cart/CART_ID",
+						"description": "# Delete Cart API Documentation\n\n## Endpoint\n\n### DELETE `/v1/cart/{CART_ID}`\n\nDeletes a specific cart based on the provided platform cart ID .\n\n**URL:** `https://dev-pos-api.zithara.com/v1/cart/{CART_ID}`\n\n- `{CART_ID}`: The unique ID of the cart on the platform. **Required.**\n    \n\n### Example Request\n\n```\nDELETE /v1/cart/CART_ID HTTP/1.1\nHost: localhost:3000\nContent-Type: application/json\n\n ```\n\n**Response**\n\n## Response Body\n\n``` json\n{  \n\"message\": \"cart deleted\"  \n}\n\n ```"
+					},
+					"response": []
+				}
+			],
+			"id": "57423929-850c-4040-b620-cb09221e83da"
+		},
+		{
+			"name": "Event API",
+			"item": [
+				{
+					"name": "create event",
+					"id": "d17299e2-df4f-4582-adc7-e39acb8b64d2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "ACCESS_TOKEN",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"event_name\": \"touch event\",\r\n    \"source_url\": \"meeseva.com\",\r\n    \"platform\": \"railway_station\",\r\n    \"os\": \"outsourcing\",\r\n    \"ip\": \"999.9.9.9\",\r\n    \"event_data\": {\r\n        \"hello\": \"hello\"\r\n    },\r\n    \"platform_customer_id\":\"sdfsdfsdfsdfffffsdsdfsdf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://dev-pos-api.zithara.com/v1/event",
+						"description": "# Create Event API Documentation\n\n## Endpoint\n\n### POST `/v1/event`\n\nCreates a new event with the specified details.\n\n**URL:** `http://localhost:3000/v1/event`\n\n## Request Body\n\n\n### Example Request Body\n\n``` json\n{\n    \"event_name\": \"touch event\",\n    \"source_url\": \"meeseva.com\",\n    \"platform\": \"railway_station\",\n    \"os\": \"outsourcing\",\n    \"ip\": \"999.9.9.9\",\n    \"event_data\": {\n        \"hello\": \"hello\"\n    },\n    \"platform_customer_id\": \"sdfsdfsdfsdfffffsdsdfsdf\"\n}\n\n ```\n\n### Response Body\n\n``` json\n{\n    \"message\": \"event created\"\n}\n\n ```\n\nThis JSON represents the response body indicating that the event was successfully created."
+					},
+					"response": []
+				}
+			],
+			"id": "881dee6d-3ba5-4184-9220-b32fccd391ff"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "583b78a5-1e37-4454-9436-bba826eb11e3",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"const clientId = \"CLIENTID\"\r",
+					"const clientSecret = \"CLIENTSECRET\"\r",
+					"\r",
+					"const base64Credentials = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');\r",
+					"\r",
+					"// Add Authorization header\r",
+					"\r",
+					"const loginRequest = {\r",
+					"    method: 'POST',\r",
+					"    url: 'https://zithara-pos-dev.auth.ap-south-1.amazoncognito.com/oauth2/token',\r",
+					"    header: {\r",
+					"        'Content-Type': 'application/x-www-form-urlencoded',\r",
+					"        'Authorization': `Basic ${base64Credentials}` // Make sure the authorization header is included in the request\r",
+					"    },\r",
+					"    body: {\r",
+					"        mode: 'urlencoded',\r",
+					"        urlencoded: [\r",
+					"            { key: 'grant_type', value: 'client_credentials' }\r",
+					"        ]\r",
+					"    }\r",
+					"};\r",
+					"\r",
+					"pm.sendRequest(loginRequest, (err, res) => {\r",
+					"    if (err) {\r",
+					"        console.log(err);\r",
+					"    } else {\r",
+					"     \r",
+					"\r",
+					"pm.variables.set(\"loginpos\", res.json().access_token);\r",
+					"    }\r",
+					"});\r",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3cd1ad3c-8826-45d4-9b4b-05c332bc5276",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "loginpos",
+			"value": ""
+		}
+	]
+}
