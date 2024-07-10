@@ -829,7 +829,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "583b78a5-1e37-4454-9436-bba826eb11e3",
+				"id": "7bf5938d-f8df-4b9d-a6c0-c6b9ae298634",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -838,7 +838,10 @@
 					"\r",
 					"const base64Credentials = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');\r",
 					"\r",
-					"// Add Authorization header\r",
+					"\r",
+					"/** \r",
+					" *  in the production change the url to https://zithara-pos-prod.auth.ap-south-1.amazoncognito.com/oauth2/token for generation the access_token  \r",
+					"*/\r",
 					"\r",
 					"const loginRequest = {\r",
 					"    method: 'POST',\r",
@@ -871,7 +874,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "3cd1ad3c-8826-45d4-9b4b-05c332bc5276",
+				"id": "cc0c866d-b4b3-44f3-8634-e3d3b7e3204d",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
